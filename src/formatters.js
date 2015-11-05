@@ -17,7 +17,7 @@ var boldRegex = /<(?:b|strong)>([\s\S]*?)<\/\w*>/gim
 var italicRegex = /<(?:i|em)>([\s\S]*?)<\/\w*>/gim
 
 /**
- * @description executes a regex to replace matched text with 
+ * @description executes a regex to replace matched text with
  * selected group with optional pre and postfix
  * @method makeRegex
  * @param  {String}  regex  [description]
@@ -37,7 +37,7 @@ function makeRegex (regex, doc, before, after, replaceFn) {
       if(replaceFn && typeof(replaceFn) === 'function'){
         replaceText = replaceFn(matches)
       }
-      replaceString += replaceText;
+      replaceString += replaceText + "\n";
       replaceString += after || '';
       newDoc = newDoc.replace(matches[0],replaceString);
     }

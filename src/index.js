@@ -37,7 +37,7 @@ module.exports = {
      * replacing unncessary html tags
      * @type {String}
      */
-    html = replaceExtras(html);    
+    html = replaceExtras(html);
 
     /**
      * looping through registered formatters

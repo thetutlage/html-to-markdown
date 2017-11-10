@@ -125,7 +125,7 @@ function replaceBlockQuote (doc) {
  * @return {String}           [description]
  */
 function replaceBold (doc) {
-  return makeRegex(boldRegex, doc, '** ', ' **');
+  return makeRegex(boldRegex, doc, '**', '**');
 }
 
 /**
@@ -136,7 +136,7 @@ function replaceBold (doc) {
  * @return {String}           [description]
  */
 function replaceItalic (doc) {
-  return makeRegex(italicRegex, doc, '* ', ' *');
+  return makeRegex(italicRegex, doc, '*', '*');
 }
 
 /**
@@ -158,7 +158,7 @@ function replaceLi (doc, tag) {
         replaceIndex++;
         replaceTag = replaceIndex + '. ';
       }else{
-        replaceTag = '* ';
+        replaceTag = '\n* ';
       }
       newDoc = newDoc.replace(matches[0],replaceTag+matches[1].trim());
     }

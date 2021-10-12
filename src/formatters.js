@@ -7,7 +7,7 @@
 */
 
 var headingRegex = /<h(\d*)>([\s\S]*?)<\/h\d*>/gim
-var pRegex = /<p>([\s\S]*?)<\/p>/gim
+var pRegex = /<p[\s\S]*?>([\s\S]*?)<\/p>/gim
 var ulRegex = /<ul>([\s\S]*?)<\/ul>/gim
 var olRegex = /<ol>([\s\S]*?)<\/ol>/gim
 var liRegex = /<li>([\s\S]*?)<\/li>/gim

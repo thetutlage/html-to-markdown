@@ -7,7 +7,7 @@
 */
 
 var formatters = require('./formatters');
-var extrasRegex = /<\/?(?:div|address|section|article|span)>/gim
+var extrasRegex = /<\/?(?:div|address|section|article)>/gim
 
 /**
  * @description replacing unncessary html tags

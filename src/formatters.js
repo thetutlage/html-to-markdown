@@ -13,8 +13,9 @@ var olRegex = /<ol>([\s\S]*?)<\/ol>/gim
 var liRegex = /<li>([\s\S]*?)<\/li>/gim
 var preRegex = /<pre>([\s\S]*?)<\/pre>/gim
 var blockQuoteRegex = /<blockquote>([\s\S]*?)<\/blockquote>/gim
-var boldRegex = /<(?:b|strong)>([\s\S]*?)<\/\w*>/gim
-var italicRegex = /<(?:i|em)>([\s\S]*?)<\/\w*>/gim
+var boldRegex = /<(?:b|strong)[\s\S]*?>([\s\S]*?)<\/(?:b|strong)>/gim
+var italicRegex = /<(?:i|em)[\s\S]*?>([\s\S]*?)<\/(?:i|em)>/gim
+var spanRegex = /<span[\s\S]*?>([\s\S]*?)<\/span>/gim
 
 /**
  * @description executes a regex to replace matched text with
@@ -125,7 +126,7 @@ function replaceBlockQuote (doc) {
  * @return {String}           [description]
  */
 function replaceBold (doc) {
-  return makeRegex(boldRegex, doc, '** ', ' **');
+  return makeRegex(boldRegex, doc, '**', '**');
 }
 
 /**
@@ -136,7 +137,7 @@ function replaceBold (doc) {
  * @return {String}           [description]
  */
 function replaceItalic (doc) {
-  return makeRegex(italicRegex, doc, '* ', ' *');
+  return makeRegex(italicRegex, doc, '*', '*');
 }
 
 /**
@@ -167,6 +168,17 @@ function replaceLi (doc, tag) {
 }
 
 /**
+ * @description replaces span section with equalent markdown
+ * syntax
+ * @method replaceSpan
+ * @param  {String}       doc [description]
+ * @return {String}           [description]
+ */
+ function replaceSpan (doc) {
+  return makeRegex(spanRegex, doc);
+}
+
+/**
  * @descriptions adds number of hashes to headings
  * based upon heading weight
  * @method addHashes
@@ -181,4 +193,14 @@ function addHashes (count) {
   return string;
 }
 
-module.exports = [replaceHeading,replaceParagraph,replacePre,replaceUl,replaceOl,replaceBold,replaceItalic,replaceBlockQuote]
+module.exports = [
+  replaceHeading,
+  replaceParagraph,
+  replacePre,
+  replaceUl,
+  replaceOl,
+  replaceBold,
+  replaceItalic,
+  replaceBlockQuote,
+  replaceSpan
+]
